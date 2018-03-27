@@ -12,7 +12,7 @@ import glob
 images = {}
 
 
-def getData(): 
+def getData(sizeOfImage,NumberOfImages): 
 
 	
 	metaData=[]
@@ -32,23 +32,19 @@ def getData():
 	for sample in metaData:
 		img = cv2.imread(sample[0])
 		if(np.shape(img)[0]>144 and np.shape(img)[1]>144):
-		# change the size of the image here
-			resized_img = cv2.resize(img, (32, 32)) 
+			resized_img = cv2.resize(img, (sizeOfImage, sizeOfImage)) 
 			myData=[]
 			myData.append(resized_img)
 			myData.extend(sample)
 			count=count+1
 			DB.append(myData)
 
-		# change the number of images here
-			if(count>=10000): 
+			if(count>=NumberOfImages): 
 				break
 
-	
 	return DB
 
 
-getData()
 
 		
 
