@@ -8,7 +8,6 @@ import random
 # The database is a list of list
 # In each sublist, the elements are age, gender, full path of the picture, year of birth
 # and year of photo taken. 
-NumberOfImages = 10000
 
 
 
@@ -66,17 +65,9 @@ def main(argv):
 	#suffles the meta data
 	random.shuffle(db)
 	thefile = open('meta.txt', 'w')
-	count=0
 	for sample in db:
 		if(sample['valid']==1):
   			thefile.write("%s\n" % sample)
-
-
-
-
-
-	
-
 
 
 
